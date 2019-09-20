@@ -8,7 +8,8 @@ namespace Entity.Models
     {
         public int Id { get; set; }
         public DateTime Created { get; set; }
-        public User CreatedBy { get; set; }
+        public virtual User CreatedBy { get; set; }
+        public int CreatedById { get; set; }
         public virtual ICollection<OrderItem> Items { get; set; }
     }
 }
