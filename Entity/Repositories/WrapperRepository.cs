@@ -12,7 +12,12 @@ namespace Entity.Repositories
         private IOrderItemRepository _orderItemRepository;
         private IUserRepository _userRepository;
 
-        public IOrderRepository OrderRepository
+        public WrapperRepository(RepositoryContext repoContext)
+        {
+            _repoContext = repoContext;
+        }
+
+        public IOrderRepository Order
         {
             get
             {
@@ -25,7 +30,7 @@ namespace Entity.Repositories
             }
         }
 
-        public IOrderItemRepository OrderItemRepository
+        public IOrderItemRepository OrderItem
         {
             get
             {
@@ -38,7 +43,7 @@ namespace Entity.Repositories
             }
         }
 
-        public IUserRepository UserRepository
+        public IUserRepository User
         {
             get
             {
@@ -49,6 +54,11 @@ namespace Entity.Repositories
 
                 return _userRepository;
             }
+        }
+
+        public int SaveChanges()
+        {
+            return _repoContext.SaveChanges();
         }
     }
 }
