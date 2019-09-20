@@ -9,6 +9,6 @@ namespace Entity.Models
         public int Id { get; set; }
         public string Username { get; set; }
         public byte[] Password { get; set; }
-        public ICollection<Order> Orders { get; set; }
+        public virtual ICollection<Order> Orders { get; } = new HashSet<Order>();
     }
 }

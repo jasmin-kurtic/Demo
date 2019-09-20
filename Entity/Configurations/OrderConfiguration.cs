@@ -13,8 +13,9 @@ namespace Entity.Configurations
         {
             builder.HasOne(p => p.CreatedBy)
                 .WithMany(p => p.Orders)
+                .HasForeignKey(p=>p.CreatedById)
                 .OnDelete(DeleteBehavior.Restrict);
-            builder.Property(o => o.CreatedBy).IsRequired();
+            builder.Property(p => p.CreatedById).IsRequired();
         }
     }
 }
