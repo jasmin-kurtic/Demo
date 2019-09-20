@@ -11,7 +11,8 @@ namespace Entity.Configurations
         public void Configure(EntityTypeBuilder<User> builder)
         {
             builder.Property(o => o.Username).IsRequired();
-            builder.Property(o => o.Password).IsRequired();
+            builder.Property(o => o.PasswordHash).IsRequired();
+            builder.Property(o => o.PasswordSalt).IsRequired();
         }
     }
 }
